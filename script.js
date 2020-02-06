@@ -1,11 +1,17 @@
+/*
+http://airbnb.io/lottie/#/web
+http://scrollmagic.io/docs/
+*/
+
+
 /* Get all Lottie animations on page */
-const animationContainers = document.querySelectorAll('.lottie-animation');
+const animations = document.querySelectorAll('.lottie-animation');
+
+let animationsObject = {};
 
 /* Initialize each lottie animation */
-for (const container of animationContainers) {
-
-  const animation = container.querySelector('.lottie-animation__svg');
-  lottie.loadAnimation({
+for (const animation of animations) {
+  const lottieInstance = lottie.loadAnimation({
     container: animation,
     renderer: 'svg',
     loop: true,
@@ -14,5 +20,10 @@ for (const container of animationContainers) {
     name: animation.dataset.name
   })
 
+  const container = animation.parentElement;
+
+  animationsObject[animation.dataset.name] = {instance: lottieInstance, container: container};
 }
 
+/* Initialize ScrollMagic */
+const controller = new ScrollMagic.Controller();
