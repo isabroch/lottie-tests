@@ -1,8 +1,11 @@
 section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   background: hsl(var(--hue, 0), 75%, 85%);
   margin: 20px 10px;
-  min-height: 300vh;
+  min-height: 150vh;
 }
 
 section:nth-child(even) {
@@ -10,9 +13,14 @@ section:nth-child(even) {
 }
 
 .lottie-animation {
-  width: 50%;
+  width: 50vh;
+}
+
+.lottie-animation--sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  height: 100%;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=style.css.map */

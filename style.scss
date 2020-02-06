@@ -1,8 +1,9 @@
 section {
+  display: flex;
   position: relative;
   background: hsl(var(--hue, 0), 75%, 85%);
   margin: 20px 10px;
-  min-height: 300vh;
+  min-height: 150vh;
 
   &:nth-child(even) {
     --hue: 200;
@@ -10,7 +11,12 @@ section {
 }
 
 .lottie-animation {
-  width: 50%;
-  position: sticky;
-  top: 0;
+  width: 50vh;
+
+  &--sticky {
+    position: sticky;
+    top: 0;
+    height: 100%;
+    margin: 0 auto;
+  }
 }
