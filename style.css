@@ -1,0 +1,30 @@
+section {
+  position: relative;
+  background: hsl(var(--hue, 0), 75%, 85%);
+  margin: 20px 10px;
+  min-height: 100vh;
+}
+
+section:nth-child(even) {
+  --hue: 200;
+}
+
+.lottie-animation {
+  width: 50%;
+  height: 100vh;
+}
+
+.lottie-animation--sticky {
+  height: 200vh;
+}
+
+.lottie-animation--sticky .lottie-animation__svg {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.lottie-animation__svg {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
