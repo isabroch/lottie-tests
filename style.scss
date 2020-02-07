@@ -1,12 +1,27 @@
 section {
-  display: flex;
   position: relative;
   background: hsl(var(--hue, 0), 75%, 85%);
   margin: 20px 10px;
   min-height: 150vh;
+  padding: 20px;
+
+  &:first-of-type {
+    font-size: 1.5rem;
+    min-height: unset;
+    padding: 80px 100px;
+  }
+
 
   &:nth-child(even) {
     --hue: 200;
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -15,8 +30,23 @@ section {
 
   &--sticky {
     position: sticky;
-    top: 0;
+    top: 25%;
     height: 100%;
     margin: 0 auto;
+  }
+}
+
+.code-sample {
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  background: hsla(0, 0%, 95%, 0.7);
+  box-shadow: 0 0 0 10px hsla(0, 0%, 100%, 0.7);
+  padding: 0 20px;
+  user-select: all;
+
+  &__comment {
+    font-style: italic;
+    opacity: 0.4;
   }
 }

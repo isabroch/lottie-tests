@@ -36,7 +36,7 @@ animationsArray.forEach(anim => {
       duration: anim.wrapper.parentElement.offsetHeight
     })
     .addTo(controller)
-    // .addIndicators() /* Debugging tool to see where and when animations occur */
+    .addIndicators() /* Debugging tool to see where and when animations occur */
     .on("progress", function (e) {
       const scrollFrame = e.progress * (anim.totalFrames - 1);
       anim.goToAndStop(scrollFrame, true);

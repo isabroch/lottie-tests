@@ -16,7 +16,55 @@
 
 <body>
 
-  <section></section>
+  <section>
+    <p>Using two libraries: <a href="http://airbnb.io/lottie/#/web">Lottie</a> & <a href="http://scrollmagic.io/docs/">ScrollMagic.</a></p>
+    <p>Trigger for animation start and end with SVG's parent container. This can be changed with the <i>duration</i> property when building the ScrollMagic scene. Examples of other durations can be: <b>"100%"</b> (A percentage of the viewport - passed as string), <b>100</b> (Set number of pixels - passed as integer).</p>
+    <p>Debug tools from ScrollMagic are activated in this preview. You can remove the debugging tools from the code below.</p>
+    <div class="code-sample">
+<span class="code-sample__comment">/* Get all Lottie animations on page */</span>
+const animations = document.querySelectorAll('.lottie-animation');
+
+<span class="code-sample__comment">/* An array that will hold the information of each animation */</span>
+let animationsArray = [];
+
+<span class="code-sample__comment">/* Initialize each lottie animation */</span>
+for (const animation of animations) {
+  const lottieInstance = lottie.loadAnimation({
+    container: animation,
+    // renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: animation.dataset.animPath,
+    name: animation.dataset.name
+  })
+
+  animationsArray.push(lottieInstance);
+}
+
+<span class="code-sample__comment">/* Initialize ScrollMagic */</span>
+const controller = new ScrollMagic.Controller();
+
+<span class="code-sample__comment">/* Build ScrollMagic Scene */</span>
+animationsArray.forEach(anim => {
+  new ScrollMagic.Scene({
+    <span class="code-sample__comment"> /*
+      * Animation will be linked to the scroll progress of its container, starting when the top of
+      * container is halfway through viewport and ending when bottom of container is halfway through
+      * viewport
+      */ </span>
+    triggerElement: anim.wrapper.parentElement,
+    triggerHook: 0.5,
+    duration: anim.wrapper.parentElement.offsetHeight
+  })
+  .addTo(controller)
+  .addIndicators() <span class="code-sample__comment">/* Debugging tool to see where and when animations occur */</span>
+  .on("progress", function (e) {
+    const scrollFrame = e.progress * (anim.totalFrames - 1);
+    anim.goToAndStop(scrollFrame, true);
+  });
+})
+      </div>
+  </section>
 
   <section id="1">
     <div class="lottie-animation lottie-animation--sticky" data-anim-path="./data/kalendar.json" data-name="check"></div>
@@ -30,7 +78,8 @@
     <div class="lottie-animation lottie-animation--sticky" data-anim-path="https://assets1.lottiefiles.com/packages/lf20_hqzVuX.json" data-name="hand"></div>
   </section>
 
-  <section></section>
+  <section style="align-items: baseline; display: flex;">
+  </section>
 
 </body>
 

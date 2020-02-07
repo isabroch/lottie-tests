@@ -1,15 +1,27 @@
 section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   position: relative;
   background: hsl(var(--hue, 0), 75%, 85%);
   margin: 20px 10px;
   min-height: 150vh;
+  padding: 20px;
+}
+
+section:first-of-type {
+  font-size: 1.5rem;
+  min-height: unset;
+  padding: 80px 100px;
 }
 
 section:nth-child(even) {
   --hue: 200;
+}
+
+section :first-child {
+  margin-top: 0;
+}
+
+section :last-child {
+  margin-bottom: 0;
 }
 
 .lottie-animation {
@@ -19,8 +31,27 @@ section:nth-child(even) {
 .lottie-animation--sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 25%;
   height: 100%;
   margin: 0 auto;
+}
+
+.code-sample {
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  background: rgba(242, 242, 242, 0.7);
+  -webkit-box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.7);
+          box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.7);
+  padding: 0 20px;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+      -ms-user-select: all;
+          user-select: all;
+}
+
+.code-sample__comment {
+  font-style: italic;
+  opacity: 0.4;
 }
 /*# sourceMappingURL=style.css.map */
