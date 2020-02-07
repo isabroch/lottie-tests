@@ -1,14 +1,43 @@
+/* Demo styling */
+.lottie-animation {
+  max-height: 100vh;
+  * {
+    max-height: inherit;
+  }
+  &--sticky {
+    width: 50vh;
+    position: sticky;
+    top: 25%;
+    margin: 0 auto;
+  }
+}
+
 section {
   position: relative;
   background: hsl(var(--hue, 0), 75%, 85%);
   margin: 20px 10px;
-  min-height: 150vh;
   padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  &:first-of-type {
-    font-size: 1.5rem;
+  &.demo {
+    font-size: 1.25rem;
     min-height: unset;
     padding: 80px 100px;
+
+    > * {
+      max-width: 800px;
+    }
+
+    dt {
+      margin-top: 0.5em;
+      font-weight: bold;
+    }
+
+    dd {
+      p:not(first-of-type) {
+        margin: 0.3em 0;
+      }
+    }
   }
 
 
@@ -25,28 +54,9 @@ section {
   }
 }
 
-.lottie-animation {
+.demo-side {
   width: 50vh;
-
-  &--sticky {
-    position: sticky;
-    top: 25%;
-    height: 100%;
-    margin: 0 auto;
-  }
-}
-
-.code-sample {
-  white-space: pre-wrap;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  background: hsla(0, 0%, 95%, 0.7);
-  box-shadow: 0 0 0 10px hsla(0, 0%, 100%, 0.7);
-  padding: 0 20px;
-  user-select: all;
-
-  &__comment {
-    font-style: italic;
-    opacity: 0.4;
-  }
+  position: absolute;
+  top: 25%;
+  right: 0;
 }
